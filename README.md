@@ -1,3 +1,38 @@
+
+# 这个项目是什么？
+
+这个项目是一个 React Native 项目模板。
+
+主要介绍的点：
+- 路由功能案例 react-navigation
+- 状态管理实践 redux + saga
+- 持久化存储
+- 样式库实践 styled-components
+- 网络请求实践 axios + 拦截器封装
+- APP配置相关
+  - 启动屏及倒计时广告开关
+  - APP Icon
+- 图标库使用
+- 动态图支持
+- 动画库 lottie 支持
+- 组件库支持 @ant-design/react-native
+- 推送能力配置
+- 热更新能力接入
+- 多语言支持
+- TDD研发方案，Detox + 单测
+- CI/CD GitHub Actions + fir 配置
+
+## 项目工程信息
+
+node version：v20.17.0
+
+使用 yarn 进行管理
+
+
+> OKOK 以下是一些生成的标准介绍。
+
+---
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
