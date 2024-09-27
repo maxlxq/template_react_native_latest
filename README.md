@@ -19,7 +19,7 @@
 - 推送能力配置
 - 热更新能力接入
 - 多语言支持
-- TDD研发方案，Detox + 单测
+- TDD研发方案，Detox/playwright + 单测
 - CI/CD GitHub Actions + fir 配置
 
 ## 项目工程信息
