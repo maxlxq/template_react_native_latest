@@ -1,12 +1,13 @@
 import { legacy_createStore as createStore, applyMiddleware } from 'redux';
-import reduxLogger from 'redux-logger';
+import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import rootReducer from '@/redux/reducer';
 import rootSaga from '@/redux/saga';
 // import { configureStore } from '@reduxjs/toolkit';
 
+const logger = createLogger({});
 const sagaMiddleware = createSagaMiddleware();
-const loggerMiddleware = __DEV__ ? [reduxLogger] : [];
+const loggerMiddleware = __DEV__ ? [logger] : [];
 
 const middleWares = applyMiddleware(sagaMiddleware, ...loggerMiddleware);
 

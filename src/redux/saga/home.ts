@@ -1,6 +1,15 @@
 import { put, fork, takeLatest, all } from 'redux-saga/effects';
 
-import { INCREASE, DECREASE } from '@/redux/action/home';
+import { INCREASE, DECREASE, SET_COUNT } from '@/redux/action/home';
+
+const setCount = function* setCount(state: { count: number }) {
+  try {
+    const { count } = state;
+    yield put({ type: SET_COUNT.SUCCESS, count });
+  } catch (error) {
+    yield put({ type: SET_COUNT.FAILED, error });
+  }
+};
 
 const increase = function* increase() {
   try {
@@ -18,6 +27,10 @@ const decrease = function* decrease() {
   }
 };
 
+const watchSetCount = function* watchSetCount() {
+  yield takeLatest(SET_COUNT.REQUEST, setCount);
+};
+
 const watchIncrease = function* watchIncrease() {
   yield takeLatest(INCREASE.REQUEST, increase);
 };
@@ -27,5 +40,5 @@ const watchDecrease = function* watchDecrease() {
 };
 
 export default function* homeSaga() {
-  yield all([fork(watchIncrease), fork(watchDecrease)]);
+  yield all([fork(watchSetCount), fork(watchIncrease), fork(watchDecrease)]);
 }

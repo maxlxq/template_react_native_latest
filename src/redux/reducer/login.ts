@@ -10,13 +10,9 @@ export const INITIAL_STATE = Immutable.Map({
 });
 
 export const login = createReducer(INITIAL_STATE, {
-  [LOGIN.SUCCESS]: (state: any) => state.merge({ isLogin: true }),
+  [LOGIN.SUCCESS]: (state: any) => state.update('isLogin', (v: boolean) => !v),
   [LOGOUT.SUCCESS]: (state: any) =>
-    state.merge({
-      isLogin: false,
-      user: null,
-      error: null,
-    }),
+    state.merge(INITIAL_STATE),
   [LOGIN.FAILED]: (state: any, { error }: Record<string, any>) =>
     state.merge({ error }),
   [LOGOUT.FAILED]: (state: any, { error }: Record<string, any>) =>

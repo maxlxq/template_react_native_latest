@@ -3,14 +3,14 @@ import { INITIAL_STATE, home } from './home';
 import { login } from './login';
 import { device } from './device';
 
-const appReducer = combineReducers<Record<string, any> | unknown>({
+const appReducer = combineReducers<Record<string, any>>({
   home,
   login,
   device,
 });
 
 const reducer = (state: any, action: any) => {
-  console.log('reducer action.type:', state, action.type);
+  console.log('reducer action:', state, action);
   let newState = state;
   if (action.type === 'LOGOUT_REQUEST') {
     // 退出登录时，同步初始化部分必要数据
