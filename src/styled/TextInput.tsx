@@ -18,6 +18,7 @@ export const BaseTextInput = withTheme((props: CommonITF) => {
       paddingVertical: 16,
       paddingHorizontal: 20,
       width: 300,
+      height: 50,
       fontSize: 18,
       alignSelf: 'center',
       marginBottom: 20,
