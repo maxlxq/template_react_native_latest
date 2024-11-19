@@ -1,4 +1,4 @@
-import { Theme } from '@react-navigation/native';
+import { DefaultTheme, Theme } from '@react-navigation/native';
 import { ColorValue } from 'react-native';
 
 /** 类型定义 */
@@ -13,7 +13,7 @@ export type ColorTheme = Theme & {
 };
 
 // 常规主题
-const DefaultTheme: ColorTheme = {
+const NormalTheme: ColorTheme = {
   dark: false,
   colors: {
     primary: '#ff6347', // 主题色
@@ -33,6 +33,7 @@ const DefaultTheme: ColorTheme = {
   sizes: {
     borderWidth: 1,
   },
+  fonts: DefaultTheme.fonts,
 };
 
 // 深色模式主题
@@ -56,6 +57,7 @@ const DarkTheme: ColorTheme = {
   sizes: {
     borderWidth: 0,
   },
+  fonts: DefaultTheme.fonts,
 };
 
-export { DefaultTheme, DarkTheme };
+export { NormalTheme, DarkTheme };

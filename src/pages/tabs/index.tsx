@@ -34,7 +34,7 @@ const onGetOptions = ({
   const isFocused = navigation.isFocused();
   const options: BottomTabNavigationOptions = {
     title: ROUTE_LABEL[route.name] || '首页',
-    tabBarTestID: ICON_ROUTE_NAME_TEST_ID[name],
+    tabBarButtonTestID: ICON_ROUTE_NAME_TEST_ID[name],
     tabBarButton: ({ onPress }) => (
       <TabBarAdvancedButton
         isFocused={isFocused}

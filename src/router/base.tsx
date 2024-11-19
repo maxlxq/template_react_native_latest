@@ -8,7 +8,8 @@ import { useSelector } from 'react-redux';
 import Modal from '@/pages/modal';
 import Login from '@/pages/login';
 import { NavigationContainer } from '@react-navigation/native';
-import { DarkTheme, DefaultTheme } from '@/constants/theme';
+import { DarkTheme, NormalTheme } from '@/constants/theme';
+import Second from '@/pages/second';
 
 const { Navigator, Screen, Group } = createNativeStackNavigator();
 
@@ -22,7 +23,7 @@ const Router = () => {
 
   return (
     <NavigationContainer
-      theme={currentColorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      theme={currentColorScheme === 'dark' ? DarkTheme : NormalTheme}>
       <Navigator>
         {/* <Group>
           <Screen
@@ -34,23 +35,18 @@ const Router = () => {
         {/* 是否登陆 */}
         {isLogin ? (
           // 已登陆页面配置
-          <Group>
-            <Screen
-              name="Tab"
-              component={BottomTab}
-              options={{ headerShown: false }}
-            />
-          </Group>
+          <Screen
+            name="Tab"
+            component={BottomTab}
+            options={{ headerShown: false }}
+          />
         ) : (
           // 未登录页面配置
-          <Group screenOptions={{ headerShown: false }}>
-            <Screen name="Login" component={Login} />
-          </Group>
+          <Screen name="Login" component={Login} options={{ headerShown: false }} />
         )}
         {/* 通用页面路由 */}
-        <Group>
-          <Screen name="Detail" component={Detail} />
-        </Group>
+        <Screen name="Detail" component={Detail} />
+        <Screen name="Second" component={Second} />
         {/* 通用弹窗路由 */}
         <Group
           screenOptions={{

@@ -1,9 +1,9 @@
-import { Span } from '@/styled/base';
 import React, { useState, useEffect } from 'react';
 import { MasonryFlashList } from '@shopify/flash-list';
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, ActivityIndicator, StyleSheet, Button } from 'react-native';
 import { ItemITF, ListITF } from '@/interface/list';
 import { CommonStyles } from '@/styled/baseStyle';
+import { NavigationProp, ParamListBase, useNavigation } from '@react-navigation/native';
 
 const generateData = (number: number) => {
   return new Promise((resolve: (res: ListITF) => void) => {
@@ -11,8 +11,8 @@ const generateData = (number: number) => {
       resolve({
         list: new Array(number)
           .fill(0)
-          .map((_) => ({
-            id: Math.random().toString(36).substring(2, 10),
+          .map((_, index) => ({
+            id: `${index}`,
             name: `name ${Math.random().toString(36).substring(2, 10)}`,
             height: parseInt(`${Math.random() * 100}`, 10) + 120,
           })),
@@ -22,6 +22,7 @@ const generateData = (number: number) => {
 };
 
 const PageTwo = () => {
+  const navigation = useNavigation<NavigationProp<ParamListBase>>();
   const [list, setList] = useState<ItemITF[]>([]);
   const [refreshing, setRefreshing] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
@@ -50,7 +51,7 @@ const PageTwo = () => {
   const renderItem = ({ item }: { item: ItemITF }) => {
     return (
       <View style={[CommonStyles.center, { height: item.height, backgroundColor: item.height > 170 ? '#f05421' : '#99f0aa' }]}>
-        <Span>{item.name}</Span>
+        <Button title={item.name} onPress={() => navigation.navigate('Detail')} />
       </View>
     );
   };
