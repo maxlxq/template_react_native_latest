@@ -10,7 +10,7 @@
 - 样式库实践 styled-components
 - 网络请求实践 axios + 拦截器封装
 - APP配置相关
-  - 启动屏及倒计时广告开关
+  - 启动屏及倒计时广告开关 react-native-bootsplash
   - APP Icon
 - 图标库使用
 - 动态图支持
